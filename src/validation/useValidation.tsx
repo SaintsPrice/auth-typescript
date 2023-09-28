@@ -57,7 +57,7 @@ const useValidation:useValidationType = (value, validations) => {
         }
       }, [value])
 
-      const validationMessage = [isEmpty, minLength, maxLength, isEmail].filter((i) => i != '').join('')
+      const validationMessage = [isEmpty, minLength, maxLength, isEmail].filter((i) => i != '').join(' ')
 
       return validationMessage
 };

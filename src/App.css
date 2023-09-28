@@ -24,6 +24,10 @@
     outline: none
   }
 
+  button:disabled {
+    background-color: grey
+  }
+
   @import url(./blocks/auth/auth.css);
   @import url(./blocks/auth/__title/auth__title.css);
   @import url(./blocks/auth/__description/auth__description.css);
@@ -31,3 +35,5 @@
   @import url(./blocks/auth/__label/auth__label.css);
   @import url(./blocks/auth/__input/auth__input.css);
   @import url(./blocks/auth/__submit/auth__submit.css);
+  @import url(./blocks/auth/__form/__error/auth__form__error.css);
+  @import url(./blocks/auth/__input/__error/auth__input__error.css);

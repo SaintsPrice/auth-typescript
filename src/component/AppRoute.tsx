@@ -2,10 +2,11 @@ import React, { FC } from 'react';
 import {Routes, Route, BrowserRouterProps} from 'react-router-dom';
 import { authRoutes, publicRoutes } from '../routes';
 import Auth from '../pages/Auth';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const AppRoutes = (props:BrowserRouterProps) => {
 
-    const isAuth: boolean = false
+    const {isAuth} = useTypedSelector(state => state.user)
 
     return (
         <Routes>
