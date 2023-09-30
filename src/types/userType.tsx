@@ -14,7 +14,8 @@ export interface IUserState {
 export const enum EnumUser {
     USER = 'USER',
     USER_SUCCESS = 'USER_SUCCESS',
-    USER_ERROR = 'USER_ERROR'
+    USER_ERROR = 'USER_ERROR',
+    USER_LOGOUT = 'USER_LOGOUT'
 };
 
 export interface IRegister {
@@ -31,6 +32,8 @@ export interface IRegisterError {
     payload: 'string'
 };
 
-export type UserAction = IRegister | IRegisterSuccess | IRegisterError;
+export interface ILogout {
+    type: EnumUser.USER_LOGOUT
+}
 
-export type UserReducerFunction = (state: IUserState, action: UserAction) => IUserState;
+export type UserAction = IRegister | IRegisterSuccess | IRegisterError | ILogout;

@@ -1,4 +1,4 @@
-import { EnumUser, IUser, IUserState, UserReducerFunction } from "../../types/userType";
+import { EnumUser, IUserState, UserAction } from "../../types/userType";
 
 const initialState:IUserState = {
     user: {
@@ -11,7 +11,7 @@ const initialState:IUserState = {
     error: null
 };
 
-const userReducer:UserReducerFunction = (state = initialState, action) => {
+const userReducer = (state = initialState, action: UserAction): IUserState => {
     switch(action.type) {
         case EnumUser.USER:
             return {...state, isLoading: true}
@@ -19,6 +19,8 @@ const userReducer:UserReducerFunction = (state = initialState, action) => {
             return {...state, isLoading: false, isAuth: true, user: action.payload}
         case EnumUser.USER_ERROR:
             return {...state, isLoading: false, error: action.payload}
+        case EnumUser.USER_LOGOUT:
+            return {...state, isLoading: false, isAuth: false, user: initialState.user}
         default:
             return state
     }

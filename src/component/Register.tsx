@@ -16,14 +16,11 @@ const Register:FC<IRegisterProps> = ({changeAuthComponent}) => {
 
     const {UserRegisterSuccess} = useActions()
 
-    const {user} = useTypedSelector(state => state)
-
     function handleSubmit(e:React.FormEvent<HTMLFormElement>): void {
         e.preventDefault()
         UserRegisterSuccess({email: isEmail.value, name: isName.value, password: isPassword.value})
+        localStorage.setItem('user', JSON.stringify({email: isEmail.value, name: isName.value}))
     };
-
-    console.log(user)
 
     return (
         <div className='auth'>
